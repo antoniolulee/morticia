@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requested_money: 9.99
+  buying_price: 9.99
+  appraisal_price: 9.99
+  years_duration: 1
+  year_of_birth: 1
+  annual_gross_income: 9.99
+  city: MyString
+  name: MyString
+  interest_type: MyString
+  email: MyString
+
+two:
+  requested_money: 9.99
+  buying_price: 9.99
+  appraisal_price: 9.99
+  years_duration: 1
+  year_of_birth: 1
+  annual_gross_income: 9.99
+  city: MyString
+  name: MyString
+  interest_type: MyString
+  email: MyString
