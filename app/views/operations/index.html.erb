@@ -1,14 +1,43 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Operations</h1>
 
-<div id="operations">
-  <% @operations.each do |operation| %>
-    <%= render operation %>
-    <p>
-      <%= link_to "Show this operation", operation %>
-    </p>
-  <% end %>
+<div class="container">
+  <h3>Operaciones hipotecarias</h3>
 </div>
 
-<%= link_to "New operation", new_operation_path %>
+<div class="container">
+  <div id="operations">
+    <% @operations.each do |operation| %>
+    <br>
+    <div id="<%= dom_id operation %>">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><%= operation.name %></h5>
+            <p class="card-text"><%= operation.city %></p>
+            </p>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Ratio préstamo/tasación:</strong>
+                <%= number_to_percentage(operation.requested_money / operation.appraisal_price, precision: 2) %>
+                <strong>Ratio préstamo/venta:</strong>
+                <%= number_to_percentage(operation.requested_money / operation.buying_price, precision: 2) %>
+              </li>
+              <li class="list-group-item"><strong>Dinero solicitado:</strong>
+                <%= number_to_currency(operation.requested_money, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+                <strong>Salario bruto:</strong>
+                <%= number_to_currency(operation.annual_gross_income, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+                <strong>Duración:</strong> <%= operation.years_duration %> años
+              </li>
+            </ul>
+
+            <div class="card-body">
+              <%= link_to "Ver detalles", operation, class:"btn btn-outline-primary" %>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <% end %>
+  </div>
+</div>

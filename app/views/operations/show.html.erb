@@ -2,9 +2,7 @@
 
 <%= render @operation %>
 
-<div>
-  <%= link_to "Edit this operation", edit_operation_path(@operation) %> |
-  <%= link_to "Back to operations", operations_path %>
+<!---<div class="container">
+  <%= link_to "Editar", edit_operation_path(@operation), class:"btn btn-success" %> | <%= button_to "Eliminar", @operation, method: :delete, class:"btn btn-danger" %>
+</div>---->
 
-  <%= button_to "Destroy this operation", @operation, method: :delete %>
-</div>

@@ -1,52 +1,31 @@
 <div id="<%= dom_id operation %>">
-  <p>
-    <strong>Requested money:</strong>
-    <%= operation.requested_money %>
-  </p>
-
-  <p>
-    <strong>Buying price:</strong>
-    <%= operation.buying_price %>
-  </p>
-
-  <p>
-    <strong>Appraisal price:</strong>
-    <%= operation.appraisal_price %>
-  </p>
-
-  <p>
-    <strong>Years duration:</strong>
-    <%= operation.years_duration %>
-  </p>
-
-  <p>
-    <strong>Year of birth:</strong>
-    <%= operation.year_of_birth %>
-  </p>
-
-  <p>
-    <strong>Annual gross income:</strong>
-    <%= operation.annual_gross_income %>
-  </p>
-
-  <p>
-    <strong>City:</strong>
-    <%= operation.city %>
-  </p>
-
-  <p>
-    <strong>Name:</strong>
-    <%= operation.name %>
-  </p>
-
-  <p>
-    <strong>Interest type:</strong>
-    <%= operation.interest_type %>
-  </p>
-
-  <p>
-    <strong>Email:</strong>
-    <%= operation.email %>
-  </p>
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold"><%= operation.name %> de <%= operation.city %></h1>
+      <p class="col-md-8 fs-4">Si está interesado contacte conmigo a través de: <strong><%= operation.email %></strong>
+      </p>
+      <p class="col-md-8 fs-4">
+        <ul class="list-group">
+          <li class="list-group-item"><strong>Dinero solicitado:</strong>
+            <%= number_to_currency(operation.requested_money, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+          </li>
+          <li class="list-group-item"><strong>Precio de compra:</strong>
+            <%= number_to_currency(operation.buying_price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+          </li>
+          <li class="list-group-item"><strong>Valor de tasación:</strong>
+            <%= number_to_currency(operation.appraisal_price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+          </li>
+          <li class="list-group-item"><strong>Ingreso bruto anual:</strong>
+            <%= number_to_currency(operation.annual_gross_income, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+          </li>
+          <li class="list-group-item"><strong>Duración:</strong> <%= operation.years_duration %> años</li>
+          <li class="list-group-item"><strong>Año de nacimiento:</strong> <%= operation.year_of_birth %>,
+            <%= Date.current.year - operation.year_of_birth %> años. Quedan <%= (operation.year_of_birth + 65) - Date.current.year %> para los 65 años</li>
+          <li class="list-group-item"><strong>Tipo de interés:</strong> <%= operation.interest_type %></li>
+        </ul>
+      </p>
+      <%= link_to "Volver", operations_path, class:"btn btn-outline-primary" %>
+    </div>
+  </div>
 
 </div>
