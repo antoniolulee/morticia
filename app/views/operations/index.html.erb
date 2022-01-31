@@ -17,9 +17,19 @@
             </p>
             <ul class="list-group list-group-flush">
               <li class="list-group-item"><strong>Ratio préstamo/tasación:</strong>
-                <%= number_to_percentage(operation.requested_money / operation.appraisal_price, precision: 2) %>
+                <%= number_to_percentage((operation.requested_money / operation.appraisal_price) * 100, precision: 1) %>
                 <strong>Ratio préstamo/venta:</strong>
-                <%= number_to_percentage(operation.requested_money / operation.buying_price, precision: 2) %>
+                <%= number_to_percentage((operation.requested_money / operation.buying_price) * 100, precision: 1) %>
+                <strong>Tasa de deuda:</strong>
+                <% n = (operation.years_duration * 12).to_f %>
+                <% i = 0.015 / 12 %>
+                <% c = operation.requested_money.to_f %>
+                <% a1 = c * i %>
+                <% a2 = 1 - (1 + i) ** -n %>
+                <% a = a1 / a2 %>
+                <% salary = operation.annual_gross_income / 12  %>
+                <% ratio = a / salary %>
+                <%= number_to_percentage(ratio * 100, precision: 1) %>
               </li>
               <li class="list-group-item"><strong>Dinero solicitado:</strong>
                 <%= number_to_currency(operation.requested_money, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
