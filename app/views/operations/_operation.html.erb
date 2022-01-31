@@ -7,16 +7,16 @@
       <p class="col-md-8 fs-4">
         <ul class="list-group">
           <li class="list-group-item"><strong>Dinero solicitado:</strong>
-            <%= number_to_currency(operation.requested_money, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+            <%= number_to_currency(operation.requested_money, locale: :es) %>
           </li>
           <li class="list-group-item"><strong>Precio de compra:</strong>
-            <%= number_to_currency(operation.buying_price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+            <%= number_to_currency(operation.buying_price, locale: :es) %>
           </li>
           <li class="list-group-item"><strong>Valor de tasación:</strong>
-            <%= number_to_currency(operation.appraisal_price, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+            <%= number_to_currency(operation.appraisal_price, locale: :es) %>
           </li>
           <li class="list-group-item"><strong>Ingreso bruto anual:</strong>
-            <%= number_to_currency(operation.annual_gross_income, unit: "€", separator: ",", delimiter: "", format: "%n %u") %>
+            <%= number_to_currency(operation.annual_gross_income, locale: :es) %>
           </li>
           <li class="list-group-item"><strong>Duración:</strong> <%= operation.years_duration %> años</li>
           <li class="list-group-item"><strong>Año de nacimiento:</strong> <%= operation.year_of_birth %>,
