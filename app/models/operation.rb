@@ -8,7 +8,7 @@ class Operation < ApplicationRecord
     validates :year_of_birth, numericality: { greater_than_or_equal_to: (Date.current.year - 50) , less_than_or_equal_to: (Date.current.year - 18) }
     validates :annual_gross_income, numericality: { greater_than_or_equal_to: 10000, less_than_or_equal_to: 500000 }
     validates :city, length: { minimum: 3, maximum: 21 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
-    validates :name, length: { minimum: 3, maximum: 15 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
+    validates :name, length: { minimum: 3, maximum: 15 }
     validates :interest_type, length: { minimum: 4, maximum: 8 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
     validates :email, length: { minimum: 3, maximum: 21 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "El correo electrónico debe ser válido" }
 
