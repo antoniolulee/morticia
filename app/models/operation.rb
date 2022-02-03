@@ -13,3 +13,4 @@ class Operation < ApplicationRecord
     validates :email, length: { minimum: 3, maximum: 21 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "El correo electrónico debe ser válido" }
 
 end
+    
