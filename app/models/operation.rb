@@ -10,6 +10,6 @@ class Operation < ApplicationRecord
     validates :city, length: { minimum: 3, maximum: 21 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
     validates :name, length: { minimum: 3, maximum: 15 }
     validates :interest_type, length: { minimum: 4, maximum: 8 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
-    validates :email, length: { minimum: 3, maximum: 21 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "El correo electrónico debe ser válido" }
+    validates :email, length: { minimum: 3, maximum: 42 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "El correo electrónico debe ser válido" }
 
 end
