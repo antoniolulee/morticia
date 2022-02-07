@@ -7,7 +7,7 @@
 
 <div class="container">
   <div id="operations">
-    <%= paginate @operations %>
+    
     <% @operations.each do |operation| %>
     <br>
     <div id="<%= dom_id operation %>">
@@ -52,5 +52,9 @@
     
 
     <% end %>
+
+    <%= paginate @operations %>
+
+    <br>
   </div>
 </div>
