@@ -7,21 +7,23 @@
 
 <div class="container">
   <div id="operations">
-    
+
     <% @operations.each do |operation| %>
     <br>
     <div id="<%= dom_id operation %>">
       <div class="card">
         <div class="card-body">
           <h3 class="card-title"><%= operation.name %></h5>
-            <p class="card-text"><%= operation.city %></p>
-            </p>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Ratio préstamo/tasación:</strong>
+            <p class="card-text"><%= operation.city %>. Operación creado <%= time_ago_in_words(operation.created_at) %></p>
+            
+            <ul class="list-inline">
+              <li class="list-inline-item"><strong>Ratio préstamo/tasación:</strong>
                 <%= number_to_percentage((operation.requested_money / operation.appraisal_price) * 100, precision: 1) %>
-                <strong>Ratio préstamo/compra:</strong>
+              </li>
+              <li class="list-inline-item"><strong>Ratio préstamo/compra:</strong>
                 <%= number_to_percentage((operation.requested_money / operation.buying_price) * 100, precision: 1) %>
-                <strong>Tasa de esfuerzo:</strong>
+              </li>
+              <li class="list-inline-item"><strong>Tasa de esfuerzo:</strong>
                 <% n = (operation.years_duration * 12).to_f %>
                 <% i = 0.015 / 12 %>
                 <% c = operation.requested_money.to_f %>
@@ -30,14 +32,14 @@
                 <% a = a1 / a2 %>
                 <% salary = operation.annual_gross_income / 12  %>
                 <% ratio = a / salary %>
-                <%= number_to_percentage(ratio * 100, precision: 1) %>
-              </li>
-              <li class="list-group-item"><strong>Dinero solicitado:</strong>
-                <%= number_to_currency(operation.requested_money, locale: :es) %>
-                <strong>Salario bruto:</strong>
-                <%= number_to_currency(operation.annual_gross_income, locale: :es) %>
-                <strong>Duración:</strong> <%= operation.years_duration %> años
-              </li>
+                <%= number_to_percentage(ratio * 100, precision: 1) %></li>
+            </ul>
+            
+            <ul class="list-inline"><strong>Dinero solicitado:</strong>
+              <%= number_to_currency(operation.requested_money, locale: :es) %></li>
+              <li class="list-inline-item"><strong>Salario bruto:</strong>
+              <%= number_to_currency(operation.annual_gross_income, locale: :es) %></li>
+              <li class="list-inline-item"><strong>Duración:</strong> <%= operation.years_duration %> años</li>
             </ul>
 
             <div class="card-body">
@@ -49,7 +51,7 @@
 
     <br>
 
-    
+
 
     <% end %>
 
