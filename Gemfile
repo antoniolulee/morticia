@@ -15,6 +15,9 @@ gem "sprockets-rails"
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
 
+# Pagination with kaminari
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

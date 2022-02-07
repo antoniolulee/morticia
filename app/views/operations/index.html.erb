@@ -7,6 +7,7 @@
 
 <div class="container">
   <div id="operations">
+    <%= paginate @operations %>
     <% @operations.each do |operation| %>
     <br>
     <div id="<%= dom_id operation %>">
@@ -20,7 +21,7 @@
                 <%= number_to_percentage((operation.requested_money / operation.appraisal_price) * 100, precision: 1) %>
                 <strong>Ratio préstamo/compra:</strong>
                 <%= number_to_percentage((operation.requested_money / operation.buying_price) * 100, precision: 1) %>
-                <strong>Ratio de endeudamiento:</strong>
+                <strong>Tasa de esfuerzo:</strong>
                 <% n = (operation.years_duration * 12).to_f %>
                 <% i = 0.015 / 12 %>
                 <% c = operation.requested_money.to_f %>
@@ -47,6 +48,8 @@
     </div>
 
     <br>
+
+    
 
     <% end %>
   </div>
