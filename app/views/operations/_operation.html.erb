@@ -6,7 +6,7 @@
       </p>
       <p class="col-md-8 fs-4">
         <ul class="list-group">
-          <li class="list-group-item"><strong>Dinero solicitado:</strong>
+          <li class="list-group-item"><strong>Importe del préstamo:</strong>
             <%= number_to_currency(operation.requested_money, locale: :es) %>
           </li>
           <li class="list-group-item"><strong>Precio de compra:</strong>
@@ -24,7 +24,7 @@
           <li class="list-group-item"><strong>Tipo de interés:</strong> <%= operation.interest_type %></li>
         </ul>
       </p>
-      <%= link_to "Volver", operations_path, class:"btn btn-outline-primary" %>
+      <%= link_to "Volver al menú", operations_path, class:"btn btn-outline-primary" %>
     </div>
   </div>
 
