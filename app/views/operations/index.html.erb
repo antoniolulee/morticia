@@ -17,10 +17,10 @@
             <p class="card-text"><%= operation.city %>. Operación creado <%= time_ago_in_words(operation.created_at) %></p>
             
             <ul class="list-inline">
-              <li class="list-inline-item"><strong>Ratio préstamo/tasación:</strong>
+              <li class="list-inline-item"><strong>LTV tasación:</strong>
                 <%= number_to_percentage((operation.requested_money / operation.appraisal_price) * 100, precision: 1) %>
               </li>
-              <li class="list-inline-item"><strong>Ratio préstamo/compra:</strong>
+              <li class="list-inline-item"><strong>LTV compra:</strong>
                 <%= number_to_percentage((operation.requested_money / operation.buying_price) * 100, precision: 1) %>
               </li>
               <li class="list-inline-item"><strong>Tasa de esfuerzo:</strong>

@@ -2,21 +2,24 @@
   <div class="container-fluid">
     <%= link_to "Morticia", operations_path, class:"navbar-brand mb-0 h1 fs-2" %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Sobre nosotros</a>
+          <%= link_to "Inicio", operations_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sobre nosotros", about_path, class:"nav-link" %>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Tus favoritos</a>
         </li>
-           
+
         <li class="nav-item">
           <a class="nav-link" href="#">Tus anuncios</a>
         </li>
-        
+
       </ul>
       <%= link_to "Anúnciate aquí", new_operation_path, class:"btn btn-outline-success btn-lg" %>
     </div>
   </div>
 </nav>
-
