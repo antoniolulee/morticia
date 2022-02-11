@@ -8,6 +8,8 @@
 <div class="container">
   <div id="operations">
 
+  <%= render "filter", operation: @operation %>
+
     <% @operations.each do |operation| %>
     <br>
     <div id="<%= dom_id operation %>">

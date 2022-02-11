@@ -1,0 +1,122 @@
+<div class='card card-body bg-light'>
+	<form class="new_filterrific" id="filterrific_filter" action="/students" accept-charset="UTF-8" method="get"><input
+			name="utf8" type="hidden" value="&#x2713;" />
+		<div class='row'>
+			<div class='col-md-2'>
+				<div class='form-group'>
+					<label class='font-weight-bold'>Buscar ref. int.</label>
+					<input class="filterrific-periodically-observed form-control" type="text" name="filterrific[search_query]"
+						id="filterrific_search_query" />
+				</div>
+			</div>
+			<div class='col-md-2'>
+				<div class='form-group'>
+					<label class='font-weight-bold'>Provincia</label>
+					<select class="form-control" name="filterrific[with_country_id]" id="filterrific_with_country_id">
+						<option value="">- Todos -</option>
+						<option value="19">Álava</option>
+						<option value="18">Albacete</option>
+						<option value="23">Alicante</option>
+						<option value="21">Almería</option>
+						<option value="22">Asturias</option>
+						<option value="20">Ávila</option>
+						<option value="24">Badajoz</option>
+						<option value="17">Barcelona</option>
+						<option value="19">Burgos</option>
+						<option value="18">Cáceres</option>
+						<option value="23">Cádiz</option>
+						<option value="21">Cantabria</option>
+						<option value="22">Castellón</option>
+						<option value="20">Ciudad Real</option>
+						<option value="24">Córdoba</option>
+						<option value="17">La Coruña</option>
+						<option value="19">Cuenca</option>
+						<option value="18">Gerona</option>
+						<option value="23">Granada</option>
+						<option value="21">Guadalajara</option>
+						<option value="22">Guipúzcoa</option>
+						<option value="20">Huelva</option>
+						<option value="24">Huesca</option>
+						<option value="17">Islas Baleares</option>
+						<option value="19">Jaén</option>
+						<option value="18">León</option>
+						<option value="23">Lérida</option>
+						<option value="21">Lugo</option>
+						<option value="22">Madrid</option>
+						<option value="20">Málaga</option>
+						<option value="24">Murcia</option>
+						<option value="17">Navarra</option>
+						<option value="19">Orense</option>
+						<option value="18">Palencia</option>
+						<option value="23">Las Palmas</option>
+						<option value="21">Pontevedra</option>
+						<option value="22">La Rioja</option>
+						<option value="20">Salamanca</option>
+						<option value="24">Segovia</option>
+						<option value="17">Sevilla</option>
+						<option value="19">Soria</option>
+						<option value="18">Tarragona</option>
+						<option value="23">Santa Cruz de Tenerife</option>
+						<option value="21">Teruel</option>
+						<option value="22">Toledo</option>
+						<option value="20">Valencia</option>
+						<option value="24">Valladolid</option>
+						<option value="17">Vizcaya</option>
+						<option value="19">Zamora</option>
+						<option value="18">Zaragoza</option>
+					</select>
+				</div>
+			</div>
+			<div class='col-md-2'>
+				<div class='form-group'>
+					<label class='font-weight-bold'>LTV compra < </label> <select class="form-control"
+							name="filterrific[with_country_id]" id="filterrific_with_country_id">
+							<option value="">100%</option>
+							<option value="19">95%</option>
+							<option value="18">90%</option>
+							<option value="23">85%</option>
+							<option value="21">80%</option>
+							</select>
+				</div>
+			</div>
+			<div class='col-md-2'>
+				<div class='form-group'>
+					<label class='font-weight-bold'>LTV tasación <</label> <select class="form-control"
+							name="filterrific[with_country_id]" id="filterrific_with_country_id">
+							<option value="">100%</option>
+							<option value="19">95%</option>
+							<option value="18">90%</option>
+							<option value="23">85%</option>
+							<option value="21">80%</option>
+							</select>
+				</div>
+			</div>
+
+			<div class='col-md-2'>
+				<div class='form-group'>
+					<label class='font-weight-bold'>Tasa de esfuerzo <</label> <select class="form-control"
+							name="filterrific[with_country_id]" id="filterrific_with_country_id">
+							<option value="">50%</option>
+							<option value="19">45%</option>
+							<option value="18">40%</option>
+							<option value="23">35%</option>
+							<option value="21">30%</option>
+							</select>
+				</div>
+
+			</div>
+			<div class='col-md-2'>
+				<div class='form-group'>
+					<label class='font-weight-bold'>Ordenado por</label>
+					<select class="form-control" name="filterrific[sorted_by]" id="filterrific_sorted_by">
+						<option selected="selected" value="created_at_desc">Importe del préstamo (mayor a menor)</option>
+						<option value="created_at_asc">Importe del préstamo (menor a payor)</option>
+						<option selected="selected" value="created_at_desc">Fecha de creación (más nuevo primero)</option>
+						<option value="created_at_asc">Fecha de creación (más antiguo primero)</option>
+
+					</select>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
