@@ -62,6 +62,11 @@
     <%= form.text_field :email, class:"form-control", placeholder: "Ejemplo: antonio@ejemplo.com" %>
   </div>
 
+  <div>
+    <%= form.label :reference_id, "Referencia interna (Opcional)", class:"form-label", style: "display: block" %>
+    <%= form.text_field :reference_id, class:"form-control", placeholder: "Pon una referencia interna para facilitar la identificación de la operación con el banco" %>
+  </div>
+
   <br>
 
   <div>
