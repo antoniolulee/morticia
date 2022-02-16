@@ -1,5 +1,8 @@
 class Operation < ApplicationRecord
     before_validation :normalize_name, on: :create
+    before_validation :normalize_email, on: :create
+    before_validation :normalize_city, on: :create
+    before_validation :normalize_interest_type, on: :create
 
     validates :requested_money, :buying_price, :appraisal_price, :years_duration, :year_of_birth, :annual_gross_income, :city, :name, :interest_type, :email, presence: true
 
@@ -22,4 +25,18 @@ class Operation < ApplicationRecord
         def normalize_name
             self.name = name.downcase.titleize
         end
+
+        def normalize_email
+            self.email = email.downcase
+        end
+
+        def normalize_city
+            self.city = city.downcase.titleize
+        end
+
+        def normalize_interest_type
+            self.interest_type = interest_type.downcase.titleize
+        end
+
+        
 end
