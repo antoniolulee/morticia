@@ -1,4 +1,6 @@
 class Operation < ApplicationRecord
+    before_validation :normalize_name, on: :create
+
     validates :requested_money, :buying_price, :appraisal_price, :years_duration, :year_of_birth, :annual_gross_income, :city, :name, :interest_type, :email, presence: true
 
     validates :requested_money, numericality: { greater_than_or_equal_to: 50000, less_than_or_equal_to: 1000000 }
@@ -12,4 +14,12 @@ class Operation < ApplicationRecord
     validates :interest_type, length: { minimum: 4, maximum: 8 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
     validates :email, length: { minimum: 3, maximum: 42 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "El correo electrónico debe ser válido" }
 
+
+
+
+    private
+
+        def normalize_name
+            self.name = name.downcase.titleize
+        end
 end
