@@ -18,6 +18,9 @@ gem 'pg'
 # Pagination with kaminari
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
+# Devise flexible authentication solution for Rails 
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
