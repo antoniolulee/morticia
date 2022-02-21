@@ -1,5 +1,6 @@
 class OperationsController < ApplicationController
   before_action :set_operation, only: %i[ show edit update destroy ]
+  # before_action :authenticate_user!
 
   # GET /operations or /operations.json
   def index
@@ -21,6 +22,7 @@ class OperationsController < ApplicationController
 
   # POST /operations or /operations.json
   def create
+    
     @operation = Operation.new(operation_params)
 
     respond_to do |format|
