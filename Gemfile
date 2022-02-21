@@ -12,6 +12,9 @@ gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
 # gem "sqlite3", "~> 1.4"
 
+# Gem Devise to authenticate users
+gem 'devise', '~> 4.8', '>= 4.8.1'
+
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
 
