@@ -15,6 +15,8 @@ gem "sprockets-rails"
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
 
+gem 'devise'
+
 # Pagination with kaminari
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 
