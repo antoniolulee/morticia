@@ -16,13 +16,25 @@
         <li class="nav-item">
           <%= link_to "Sobre nosotros", about_path, class:"nav-link" %>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Tus favoritos</a>
-        </li>
+        
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tus favoritos</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Tus anuncios</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Tus anuncios</a>
+          </li>
+
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>        
+
+          <% else %>
+
+            <%= link_to "Login", new_user_session_path, class: "nav-item nav-link" %>
+
+        <% end %>
+
+      
       </ul>
 
       <div class="d-flex">
