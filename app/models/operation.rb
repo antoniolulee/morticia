@@ -1,10 +1,9 @@
 class Operation < ApplicationRecord
     before_validation :normalize_name, on: :create
-    before_validation :normalize_email, on: :create
     before_validation :normalize_city, on: :create
     before_validation :normalize_interest_type, on: :create
 
-    validates :requested_money, :buying_price, :appraisal_price, :years_duration, :year_of_birth, :annual_gross_income, :city, :name, :interest_type, :email, presence: true
+    validates :requested_money, :buying_price, :appraisal_price, :years_duration, :year_of_birth, :annual_gross_income, :city, :name, :interest_type, presence: true
 
     validates :requested_money, numericality: { greater_than_or_equal_to: 50000, less_than_or_equal_to: 1000000 }
     validates :buying_price, numericality: { greater_than_or_equal_to: 50000, less_than_or_equal_to: 1500000 }
@@ -15,28 +14,23 @@ class Operation < ApplicationRecord
     validates :city, length: { minimum: 3, maximum: 21 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
     validates :name, length: { minimum: 3, maximum: 15 }
     validates :interest_type, length: { minimum: 4, maximum: 8 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
-    validates :email, length: { minimum: 3, maximum: 42 }, format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "El correo electrónico debe ser válido" }
 
 
 
 
     private
 
-        def normalize_name
-            self.name = name.downcase.titleize
-        end
+			def normalize_name
+				self.name = name.downcase.titleize
+			end
 
-        def normalize_email
-            self.email = email.downcase
-        end
+			def normalize_city
+				self.city = city.downcase.titleize
+			end
 
-        def normalize_city
-            self.city = city.downcase.titleize
-        end
-
-        def normalize_interest_type
-            self.interest_type = interest_type.downcase.titleize
-        end
+			def normalize_interest_type
+				self.interest_type = interest_type.downcase.titleize
+			end
 
         
 end
