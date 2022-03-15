@@ -23,7 +23,7 @@
                 <%= number_to_percentage(operation.ltv_appraisal, precision: 1) %>
               </li>
               <li class="list-inline-item"><strong>LTV compra:</strong>
-                <%= number_to_percentage((operation.requested_money / operation.buying_price) * 100, precision: 1) %>
+                <%= number_to_percentage(operation.ltv_buying, precision: 1) %>
               </li>
               <li class="list-inline-item"><strong>Tasa de esfuerzo:</strong>
                 <% n = (operation.years_duration * 12).to_f %>

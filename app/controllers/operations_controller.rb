@@ -28,6 +28,8 @@ class OperationsController < ApplicationController
 
     @operation.ltv_appraisal = (@operation.requested_money / @operation.appraisal_price) * 100
 
+    @operation.ltv_buying = (@operation.requested_money / @operation.buying_price) * 100
+
     respond_to do |format|
       if @operation.save
         format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
