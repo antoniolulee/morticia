@@ -3,7 +3,7 @@ class Operation < ApplicationRecord
     before_validation :normalize_city, on: :create
     before_validation :normalize_interest_type, on: :create
 
-    validates :requested_money, :buying_price, :appraisal_price, :years_duration, :year_of_birth, :annual_gross_income, :city, :name, :interest_type, presence: true
+    validates :requested_money, :buying_price, :appraisal_price, :years_duration, :year_of_birth, :annual_gross_income, :city, :name, :interest_type, :ltv_appraisal, :ltv_buying, :stress_test, presence: true
 
     validates :requested_money, numericality: { greater_than_or_equal_to: 50000, less_than_or_equal_to: 1000000 }
     validates :buying_price, numericality: { greater_than_or_equal_to: 50000, less_than_or_equal_to: 1500000 }
