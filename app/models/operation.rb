@@ -15,7 +15,7 @@ class Operation < ApplicationRecord
     validates :name, length: { minimum: 3, maximum: 15 }
     validates :interest_type, length: { minimum: 4, maximum: 8 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
 
-
+    belongs_to :user
 
 
     private

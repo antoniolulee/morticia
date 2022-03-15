@@ -24,6 +24,8 @@ class OperationsController < ApplicationController
   def create
     @operation = Operation.new(operation_params)
 
+    @operation.user = current_user
+
     respond_to do |format|
       if @operation.save
         format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
