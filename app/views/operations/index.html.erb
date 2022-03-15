@@ -34,7 +34,8 @@
                 <% a = a1 / a2 %>
                 <% salary = operation.annual_gross_income / 12  %>
                 <% ratio = a / salary %>
-                <%= number_to_percentage(ratio * 100, precision: 1) %></li>
+                <%= number_to_percentage(operation.stress_test, precision: 1) %>
+              </li>
             </ul>
             
             <ul class="list-inline"><strong>Dinero solicitado:</strong>

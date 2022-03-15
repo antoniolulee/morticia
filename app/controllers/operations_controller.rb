@@ -30,6 +30,16 @@ class OperationsController < ApplicationController
 
     @operation.ltv_buying = (@operation.requested_money / @operation.buying_price) * 100
 
+    interest_rate = 0.015 / 12
+    n = (@operation.years_duration * 12).to_f
+    c = @operation.requested_money
+    a1 = c * interest_rate
+    a2 = 1 - (1 + interest_rate) ** -n
+    a = a1 / a2
+    salary = @operation.annual_gross_income / 12
+
+    @operation.stress_test = (a / salary) * 100
+
     respond_to do |format|
       if @operation.save
         format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
