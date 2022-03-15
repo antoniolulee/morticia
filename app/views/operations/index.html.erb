@@ -20,7 +20,7 @@
             
             <ul class="list-inline">
               <li class="list-inline-item"><strong>LTV tasación:</strong>
-                <%= number_to_percentage((operation.requested_money / operation.appraisal_price) * 100, precision: 1) %>
+                <%= number_to_percentage(operation.ltv_appraisal, precision: 1) %>
               </li>
               <li class="list-inline-item"><strong>LTV compra:</strong>
                 <%= number_to_percentage((operation.requested_money / operation.buying_price) * 100, precision: 1) %>
