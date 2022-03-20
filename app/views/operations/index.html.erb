@@ -15,8 +15,8 @@
     <div id="<%= dom_id operation %>">
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title"><%= operation.name %></h5>
-            <p class="card-text"><%= operation.city %>. Operación creado <%= time_ago_in_words(operation.created_at) %></p>
+          <h3 class="card-title"><%= operation.name %> de <%= operation.city %> </h5>
+            <p class="card-text">Operación creada hace <%= time_ago_in_words(operation.created_at) %> y contactada <%= operation.messages.count %> veces </p>
             
             <ul class="list-inline">
               <li class="list-inline-item"><strong>LTV tasación:</strong>
@@ -26,14 +26,6 @@
                 <%= number_to_percentage(operation.ltv_buying, precision: 1) %>
               </li>
               <li class="list-inline-item"><strong>Tasa de esfuerzo:</strong>
-                <% n = (operation.years_duration * 12).to_f %>
-                <% i = 0.015 / 12 %>
-                <% c = operation.requested_money.to_f %>
-                <% a1 = c * i %>
-                <% a2 = 1 - (1 + i) ** -n %>
-                <% a = a1 / a2 %>
-                <% salary = operation.annual_gross_income / 12  %>
-                <% ratio = a / salary %>
                 <%= number_to_percentage(operation.stress_test, precision: 1) %>
               </li>
             </ul>

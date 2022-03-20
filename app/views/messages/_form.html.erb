@@ -12,21 +12,17 @@
   <% end %>
 
   <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+    <%= form.label :content, style: "display: block", class:"form-label" %>
+    <%= form.text_area :content, class:"form-control-lg" %>
   </div>
 
+  <!-- refactor -->
   <div>
-    <%= form.label :operation_id, style: "display: block" %>
-    <%= form.text_field :operation_id %>
+    <%= form.hidden_field :operation_id, value: "#{params[:operation_id]}" %>
   </div>
+  <!------->
 
   <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Enviar mensaje", class:"btn btn-primary" %>
   </div>
 <% end %>
