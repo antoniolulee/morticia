@@ -1,10 +1,14 @@
-<h1>Nuevo mensaje</h1>
+<div class="container">
+  <h1>Nuevo mensaje</h1>
 
-<%= render "form", message: @message %>
+  <%= render "form", message: @message %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Volver a la operación", operations_path, class:"btn btn-outline-primary" %>
-  
+  <div>
+    <%= link_to "Volver a la operación", operations_path, class:"btn btn-outline-primary" %>
+  </div>
+
+  <br>
+
 </div>
