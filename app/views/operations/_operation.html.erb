@@ -29,7 +29,8 @@
         </ul>
       </p>
       <%= link_to "Volver al menú", operations_path, class:"btn btn-outline-primary" %>
-      <%= link_to "Contactar", new_message_path(operation_id: @operation.id), class:"btn btn-outline-success" %>
+      <%= link_to "Contactar", new_message_path(id: @operation.id), class:"btn btn-outline-success" %>
+      
     </div>
   </div>
 

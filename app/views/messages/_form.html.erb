@@ -19,12 +19,13 @@
   <!-- refactor -->
 
   <div>
-    <%= form.hidden_field :operation_id, value: "#{params[:operation_id]}" %>
+    <%= form.hidden_field :operation_id, value: "#{params[:id]}" %>
   </div>
   
   <!------->
 
   <div>
-    <%= form.submit "Enviar mensaje", class:"btn btn-primary" %>
+    <%= link_to "Volver", :back, class:"btn btn-outline-primary" %>
+    <%= form.submit "Enviar", class:"btn btn-outline-success" %>
   </div>
 <% end %>
