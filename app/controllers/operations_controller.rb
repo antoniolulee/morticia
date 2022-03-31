@@ -4,7 +4,11 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @operations = Operation.order(created_at: :desc).page(params[:page])
+    # @operations = Operation.order(created_at: :desc).page(params[:page])
+
+    @q = Operation.ransack(params[:q])
+    @operations = @q.result(distinct: true).page(params[:page])
+
   end
 
   # GET /operations/1 or /operations/1.json
@@ -30,7 +34,7 @@ class OperationsController < ApplicationController
 
     @operation.ltv_buying = (@operation.requested_money / @operation.buying_price) * 100
 
-    interest_rate = 0.015 / 12
+    interest_rate = 0.017 / 12
     n = (@operation.years_duration * 12).to_f
     c = @operation.requested_money
     a1 = c * interest_rate
@@ -73,6 +77,7 @@ class OperationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

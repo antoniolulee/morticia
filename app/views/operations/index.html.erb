@@ -8,6 +8,7 @@
 <div class="container">
   <div id="operations">
 
+  
   <%= render "filter", operation: @operation %>
 
     <% @operations.each do |operation| %>
@@ -19,11 +20,11 @@
             <p class="card-text">Operación creada hace <%= time_ago_in_words(operation.created_at) %> y contactada <%= operation.messages.count %> veces </p>
             
             <ul class="list-inline">
-              <li class="list-inline-item"><strong>LTV tasación:</strong>
-                <%= number_to_percentage(operation.ltv_appraisal, precision: 1) %>
-              </li>
               <li class="list-inline-item"><strong>LTV compra:</strong>
                 <%= number_to_percentage(operation.ltv_buying, precision: 1) %>
+              </li>
+              <li class="list-inline-item"><strong>LTV tasación:</strong>
+                <%= number_to_percentage(operation.ltv_appraisal, precision: 1) %>
               </li>
               <li class="list-inline-item"><strong>Tasa de esfuerzo:</strong>
                 <%= number_to_percentage(operation.stress_test, precision: 1) %>

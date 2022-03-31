@@ -15,7 +15,11 @@ gem "sprockets-rails"
 # Use PostgreSQL as the database for Active Record
 gem 'pg'
 
+# Use Devise to set up authentication
 gem 'devise'
+
+# use Ransack for search and filtering
+gem 'ransack', '~> 2.6'
 
 # Pagination with kaminari
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
