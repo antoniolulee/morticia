@@ -7,6 +7,8 @@ class OperationsController < ApplicationController
     # @operations = Operation.order(created_at: :desc).page(params[:page])
 
     @q = Operation.ransack(params[:q])
+    #Sort operations by created_at
+    @q.sorts = 'created_at desc' if @q.sorts.empty?
     @operations = @q.result(distinct: true).page(params[:page])
 
   end
