@@ -1,66 +1,68 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-  <div class="container-fluid">
+	<div class="container-fluid">
 
-    <%= link_to "Morticia", operations_path, class:"navbar-brand mb-0 h1 fs-2" %>
+		<%= link_to "Morticia", operations_path, class:"navbar-brand mb-0 h1 fs-2", style:"color:#663399" %>
+		<div class="d-flex">
+			<%= link_to "¡Anuncia tu hipoteca!", new_operation_path, class:"btn btn-outline-success btn-md" %>
+		</div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <%= link_to "Inicio", operations_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sobre nosotros", about_path, class:"nav-link" %>
-        </li>
-
-        <% if user_signed_in? %>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tus favoritos</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Tus anuncios</a>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <%= current_user.email %>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><%= link_to "Editar perfil", edit_user_registration_path, class: "dropdown-item" %></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
-          </ul>
-        </li>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
 
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <% else %>
-        <li class="nav-item">
-          <%= link_to "Iniciar sesión", new_user_session_path, class: "nav-item nav-link" %>
-        </li>
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<%= link_to "Inicio", operations_path, class:"nav-link" %>
+				</li>
+				<li class="nav-item">
+					<%= link_to "Sobre nosotros", about_path, class:"nav-link" %>
+				</li>
 
-        <%= link_to "Nuevo usuario", new_user_registration_path, class: "nav-item nav-link" %>
-        <% end %>
+				<% if user_signed_in? %>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Tus mensajes</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="#">Tus anuncios</a>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+						aria-expanded="false">
+						<%= current_user.email %>
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><%= link_to "Editar perfil", edit_user_registration_path, class: "dropdown-item" %></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+					</ul>
+				</li>
+
+				<% else %>
+				<li class="nav-item">
+					<%= link_to "Iniciar sesión", new_user_session_path, class: "nav-item nav-link" %>
+				</li>
+
+				<%= link_to "Nuevo usuario", new_user_registration_path, class: "nav-item nav-link" %>
+				<% end %>
 
 
-      </ul>
-
-      <div class="d-flex">
-        <%= link_to "¡Anuncia tu hipoteca Aquí!", new_operation_path, class:"btn btn-outline-success btn-lg" %>
-      </div>
-    </div>
+			</ul>
 
 
 
+		</div>
 
 
-  </div>
+
+
+
+	</div>
 </nav>
