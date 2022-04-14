@@ -18,6 +18,9 @@ gem 'pg'
 # Use Devise to set up authentication
 gem 'devise'
 
+# Use Stripe for payment processing
+gem 'stripe'
+
 # use Ransack for search and filtering
 gem 'ransack', '~> 2.6'
 
