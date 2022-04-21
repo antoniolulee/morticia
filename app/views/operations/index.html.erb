@@ -8,46 +8,49 @@
 <div class="container">
   <div id="operations">
 
-  
-  <%= render "filter", operation: @operation %>
+
+    <%= render "filter", operation: @operation %>
 
     <% @operations.each do |operation| %>
+    <!----Refactor to a partial to extract--->
     <br>
-    <div id="<%= dom_id operation %>">
+    <div>
       <div class="card">
         <div class="card-body">
-          <h3 class="card-title"><%= operation.name %> de <%= operation.city %> </h5>
-            <p class="card-text">Operación creada hace <%= time_ago_in_words(operation.created_at) %> y contactada <%= operation.messages.count %> veces </p>
-            
-            <ul class="list-inline">
-              <li class="list-inline-item"><strong>LTV compra:</strong>
-                <%= number_to_percentage(operation.ltv_buying, precision: 1) %>
-              </li>
-              <li class="list-inline-item"><strong>LTV tasación:</strong>
-                <%= number_to_percentage(operation.ltv_appraisal, precision: 1) %>
-              </li>
-              <li class="list-inline-item"><strong>Tasa de esfuerzo:</strong>
-                <%= number_to_percentage(operation.stress_test, precision: 1) %>
-              </li>
-            </ul>
-            
-            <ul class="list-inline"><strong>Dinero solicitado:</strong>
-              <%= number_to_currency(operation.requested_money, locale: :es) %></li>
-              <li class="list-inline-item"><strong>Salario bruto:</strong>
-              <%= number_to_currency(operation.annual_gross_income, locale: :es) %></li>
-              <li class="list-inline-item"><strong>Duración:</strong> <%= operation.years_duration %> años</li>
-            </ul>
+          <h3 class="card-title"><%= operation.name %> de <%= operation.city %> </h3>
+          <p class="card-text">Operación creada hace <%= time_ago_in_words(operation.created_at) %> y contactada
+            <%= operation.messages.count %> veces </p>
 
-            <div class="card-body">
-              <%= link_to "Ver detalles", operation, class:"btn btn-outline-primary" %>
-            </div>
+          <ul class="list-inline">
+            <li class="list-inline-item"><strong>LTV compra:</strong>
+              <%= number_to_percentage(operation.ltv_buying, precision: 1) %>
+            </li>
+            <li class="list-inline-item"><strong>LTV tasación:</strong>
+              <%= number_to_percentage(operation.ltv_appraisal, precision: 1) %>
+            </li>
+            <li class="list-inline-item"><strong>Tasa de esfuerzo:</strong>
+              <%= number_to_percentage(operation.stress_test, precision: 1) %>
+            </li>
+          </ul>
+
+          <ul class="list-inline"><strong>Dinero solicitado:</strong>
+            <%= number_to_currency(operation.requested_money, locale: :es) %></li>
+            <li class="list-inline-item"><strong>Salario bruto:</strong>
+              <%= number_to_currency(operation.annual_gross_income, locale: :es) %></li>
+            <li class="list-inline-item"><strong>Duración:</strong> <%= operation.years_duration %> años</li>
+          </ul>
+
+          <div class="card-body">
+            <%= link_to "Ver detalles", operation, class:"btn btn-outline-primary" %>
+            <% if operation.phone_number != nil %>
+            <button type="button" class="btn btn-outline-dark"><b><%= number_to_phone(operation.phone_number) %></b></button>
+            <% else %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-
     <br>
-
-
 
     <% end %>
 

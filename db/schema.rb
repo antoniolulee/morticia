@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_17_143035) do
+ActiveRecord::Schema.define(version: 2022_04_21_001636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2022_03_17_143035) do
     t.decimal "ltv_appraisal"
     t.decimal "ltv_buying"
     t.decimal "stress_test"
+    t.integer "status"
+    t.string "phone_number"
     t.index ["user_id"], name: "index_operations_on_user_id"
   end
 

@@ -1,0 +1,77 @@
+<!-----Refactor----->
+
+<p style="color: green"><%= notice %></p>
+
+
+<div class="container">
+  <h3>Tus operaciones hipotecarias</h3>
+</div>
+
+
+<div class="container">
+  <div id="operations">
+
+    <% @operations.each do |operation| %>
+    <br>
+
+    <div>
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title"><%= operation.name %> de <%= operation.city %>
+              <% if operation.status == 0 %>
+              - Pendiente de pago
+              <% elsif operation.status == 1 %>
+              - Operación activa
+              <% elsif operation.status == 2 %>
+              - Operación finalizada
+              <% else %>
+              - Operación caducada
+              <% end %> </h3>
+
+
+            <p class="card-text">Operación creada hace <%= time_ago_in_words(operation.created_at) %> y contactada
+              <%= operation.messages.count %> veces </p>
+
+            <ul class="list-inline">
+              <li class="list-inline-item"><strong>LTV compra:</strong>
+                <%= number_to_percentage(operation.ltv_buying, precision: 1) %>
+              </li>
+              <li class="list-inline-item"><strong>LTV tasación:</strong>
+                <%= number_to_percentage(operation.ltv_appraisal, precision: 1) %>
+              </li>
+              <li class="list-inline-item"><strong>Tasa de esfuerzo:</strong>
+                <%= number_to_percentage(operation.stress_test, precision: 1) %>
+              </li>
+            </ul>
+
+            <ul class="list-inline"><strong>Dinero solicitado:</strong>
+              <%= number_to_currency(operation.requested_money, locale: :es) %></li>
+              <li class="list-inline-item"><strong>Salario bruto:</strong>
+                <%= number_to_currency(operation.annual_gross_income, locale: :es) %></li>
+              <li class="list-inline-item"><strong>Duración:</strong> <%= operation.years_duration %> años</li>
+            </ul>
+
+
+
+            <div class="card-body">
+              <%= link_to "Ver detalles", operation, class:"btn btn-outline-primary" %>
+              <% if operation.status == 0 %>
+                <%= link_to "Pagar", operation, class:"btn btn-outline-danger" %>
+                <% elsif operation.status == 1 %>
+                  <%= link_to "Finalizar", operation, class:"btn btn-outline-success" %>
+                <% else %>
+              <% end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <% end %>
+
+    <br>
+  </div>
+</div>
