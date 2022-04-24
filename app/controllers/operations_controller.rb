@@ -49,7 +49,7 @@ class OperationsController < ApplicationController
 
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
+        format.html { redirect_to your_operations_url(@operation), notice: "Operation was successfully created." }
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -81,7 +81,7 @@ class OperationsController < ApplicationController
     end
   end
 
-  def my_operations
+  def your_operations
     #operation where user_id = current_user.id sort by created_at
     @operations = Operation.where(user_id: current_user.id).order(created_at: :desc)
     

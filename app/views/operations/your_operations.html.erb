@@ -57,9 +57,9 @@
             <div class="card-body">
               <%= link_to "Ver detalles", operation, class:"btn btn-outline-primary" %>
               <% if operation.status == 0 %>
-                <%= link_to "Pagar", operation, class:"btn btn-outline-danger" %>
+                <%= link_to "Pagar 1,99€", operation, class:"btn btn-outline-danger" %>
                 <% elsif operation.status == 1 %>
-                  <%= link_to "Finalizar", operation, class:"btn btn-outline-success" %>
+                  <%= link_to "Finalizar ¡Ya tengo la Hipoteca!", operation, class:"btn btn-outline-success" %>
                 <% else %>
               <% end %>
 

@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :messages
+  resources :messages, only: [:create, :new]
   devise_for :users
   resources :operations
-  get "/my-operations", to:"operations#my_operations"
+  get "/your-operations", to:"operations#your_operations"
 
   root "operations#index"
 

@@ -3,7 +3,7 @@ class Operation < ApplicationRecord
     before_validation :normalize_city, on: :create
     before_validation :normalize_interest_type, on: :create
 
-    validates :requested_money, :buying_price, :appraisal_price, :years_duration, :year_of_birth, :annual_gross_income, :city, :name, :interest_type, :ltv_appraisal, :ltv_buying, :stress_test, :status, :phone_number, presence: true
+    validates :requested_money, :buying_price, :appraisal_price, :years_duration, :year_of_birth, :annual_gross_income, :city, :name, :interest_type, :ltv_appraisal, :ltv_buying, :stress_test, :status, presence: true
 
     validates :requested_money, numericality: { greater_than_or_equal_to: 50000, less_than_or_equal_to: 1000000 }
     validates :buying_price, numericality: { greater_than_or_equal_to: 50000, less_than_or_equal_to: 1500000 }
@@ -13,7 +13,7 @@ class Operation < ApplicationRecord
     validates :annual_gross_income, numericality: { greater_than_or_equal_to: 10000, less_than_or_equal_to: 500000 }
     validates :city, length: { minimum: 3, maximum: 21 }
     validates :name, length: { minimum: 3, maximum: 15 }
-    validates :phone_number, length: { minimum: 9, maximum: 15 }
+    validates :phone_number, length: { minimum: 0, maximum: 15 }
     validates :interest_type, length: { minimum: 4, maximum: 8 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
 
     belongs_to :user
