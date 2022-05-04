@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:create, :new]
   devise_for :users
   resources :operations
-  #get "checkout/create", to: "checkout#create"
+  resources :webhooks, only: [:create]
   post "checkout/create", to: "checkout#create"
   get "/your-operations", to:"operations#your_operations"
 
