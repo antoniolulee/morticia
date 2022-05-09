@@ -24,9 +24,9 @@ class WebhooksController < ApplicationController
       # Handle the event
       case event.type
       when 'checkout.session.completed'
-        session = event.data.object
-          @operation = Operation.find_by(operation_id: client_reference_id.to_i)
-          @operation.status = 1
+        #session = event.data.object
+        #@operation = Operation.find_by(operation_id: client_reference_id.to_i)
+        #@operation.status = 1
         end
       end
   
