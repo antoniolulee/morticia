@@ -28,6 +28,7 @@ class WebhooksController < ApplicationController
       session_with_expand = Stripe::Checkout::Session.retrieve({ id: session.id, expand: ["line_items"]})
       session_with_expand.line_items.data.each do |line_item|
         operation = Operation.find_by(id: session.client_reference_id)
+        puts operation.id
         operation.status = 1
       end
     end
