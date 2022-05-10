@@ -87,6 +87,16 @@ class OperationsController < ApplicationController
     
   end
 
+  #def finalize
+  #  @operation = Operation.find(params[:id])
+
+  #  @operation.update(status: 1)
+    
+  #  redirect_to your_operation_url, notice: "Tu operacion ha sido finalizada."
+
+    #https://blog.corsego.com/ruby-on-rails-change-status-button
+  #end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

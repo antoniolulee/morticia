@@ -6,7 +6,7 @@ def create
 	session = Stripe::Checkout::Session.create({
 		payment_method_types: ['card'],
 		line_items: [{
-			description: operation.id,
+			description: "Morticia services",
 			name: "Morticia",
 			amount: 199,
 			currency: 'eur',
