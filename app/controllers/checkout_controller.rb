@@ -5,6 +5,7 @@ def create
 	operation = Operation.find(params[:id])
 	session = Stripe::Checkout::Session.create({
 		payment_method_types: ['card'],
+		customer: current_user.stripe_customer_id,
 		line_items: [{
 			description: "Morticia services",
 			name: "Morticia",
