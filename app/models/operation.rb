@@ -16,8 +16,9 @@ class Operation < ApplicationRecord
     validates :phone_number, length: { minimum: 0, maximum: 15 }
     validates :interest_type, length: { minimum: 4, maximum: 8 }, format: { with: /\A[a-zA-Z]+\z/, message: "solamente se permiten letras" }
 
+    has_many :messages, dependent: :destroy
     belongs_to :user
-    has_many :messages
+    
 
 
     private
