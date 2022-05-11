@@ -62,6 +62,12 @@ class MessagesController < ApplicationController
   #  end
   #end
 
+  def your_messages
+    #messages where operation is created by current user
+    @messages = Message.find_by_sql("SELECT * FROM messages WHERE operation_id IN (SELECT id FROM operations WHERE user_id = #{current_user.id}) ORDER BY created_at DESC")
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message

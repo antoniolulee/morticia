@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :webhooks, only: [:create]
   post "checkout/create", to: "checkout#create"
   get "/your-operations", to:"operations#your_operations"
+  get "/your-messages", to:"messages#your_messages"
 
   
   get "/about", to:"pages#about"

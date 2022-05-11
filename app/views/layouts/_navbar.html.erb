@@ -24,7 +24,7 @@
 
 				<% if user_signed_in? %>
 				<li class="nav-item">
-					<a class="nav-link" href="#">Tus mensajes</a>
+					<%= link_to "Tus mensajes", your_messages_path, class: "nav-link" %>
 				</li>
 
 				<li>

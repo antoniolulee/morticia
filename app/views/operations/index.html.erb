@@ -18,8 +18,12 @@
       <div class="card">
         <div class="card-body">
           <h3 class="card-title"><%= operation.name %> de <%= operation.city %> </h3>
-          <p class="card-text">Operación creada hace <%= time_ago_in_words(operation.created_at) %> y contactada
-            <%= operation.messages.count %> veces </p>
+          <p class="card-text">Operación creada en <%= time_tag(operation.created_at) %> y contactada
+            <% if operation.messages.count == 1 %>
+             <%= operation.messages.count %> vez </p>
+            <% else %>
+              <%= operation.messages.count %> veces </p>
+            <% end %>
 
           <ul class="list-inline">
             <li class="list-inline-item"><strong>LTV compra:</strong>
@@ -42,10 +46,6 @@
 
           <div class="card-body">
             <%= link_to "Ver detalles", operation, class:"btn btn-outline-primary" %>
-            <% if operation.phone_number != nil %>
-            <button type="button" class="btn btn-outline-dark"><b><%= number_to_phone(operation.phone_number) %></b></button>
-            <% else %>
-            <% end %>
           </div>
         </div>
       </div>

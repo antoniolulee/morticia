@@ -37,7 +37,7 @@ class OperationsController < ApplicationController
 
     @operation.status = 0
 
-    interest_rate = 0.017 / 12
+    interest_rate = 0.02 / 12
     n = (@operation.years_duration * 12).to_f
     c = @operation.requested_money
     a1 = c * interest_rate

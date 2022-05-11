@@ -1,0 +1,55 @@
+<p style="color: green"><%= notice %></p>
+
+
+<div class="container">
+	<h3>Tus mensajes recibidos</h3>
+</div>
+
+
+<div class="container">
+	<div id="messages">
+
+		<% @messages.each do |message| %>
+		<br>
+
+		<div>
+			<div>
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title"><%= message.user.email %></h4>
+
+						<ul class="list-inline">
+							<li class="list-inline-item"><strong>ID Operación:</strong>
+								<%= message.operation_id %>
+							</li>
+							<% if message.operation.reference_id.strip.empty? %>
+							
+							<% else %>
+							<li class="list-inline-item"><strong>Ref. interna:</strong>
+								<!---Show reference_id attribute from operation-->
+								<%= message.operation.reference_id %>
+							</li>
+							<% end %>
+
+							<li class="list-inline-item"><strong>Fecha de creación:</strong>
+								<%= time_tag(message.created_at) %>
+							</li>
+						</ul>
+						<h5 class="card-title">Mensaje:</h5>
+						<p class="card-text">
+							<%= message.content %>
+						</p>
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<br>
+		<% end %>
+
+		<br>
+	</div>
+</div>
