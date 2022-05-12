@@ -46,7 +46,7 @@
 
   <!--Refactor city in database-->
   <div class="col-sm-7">
-    <%= form.label :city, "Ciudad", class:"form-label", style: "display: block" %>
+    <%= form.label :city, "Provincia", class:"form-label", style: "display: block" %>
     <%= form.select(:city, ["Alava", "Albacete", "Alicante", "Almeria", "Asturias", "Avila", "Badajoz", "Barcelona", "Burgos", "Caceres", "Cadiz", "Cantabria", "Castellon", "Ciudad Real", "Cordoba", "La Coruña", "Cuenca", "Gerona", "Granada", "Guadalajara", "Guipuzcoa", "Huelva", "Huesca", "Islas Baleares", "Jaen", "Leon", "Lerida", "Lugo", "Madrid", "Malaga", "Murcia", "Navarra", "Orense", "Palencia", "Las Palmas", "Pontevedra", "La Rioja", "Salamanca", "Segovia", "Sevilla", "Soria", "Tarragona", "Santa Cruz de Tenerife", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Ceuta", "Melilla" ], {include_blank: "Selecciona una provincia"}, {class:"form-control"}) %>
   </div>
 
@@ -62,7 +62,7 @@
   </div>
 
   <div class="col-sm-7">
-    <%= form.label :phone_number, "Teléfono (Opcional)", class:"form-label", style: "display: block" %>
+    <%= form.label :phone_number, "Teléfono", class:"form-label", style: "display: block" %>
     <%= form.text_field :phone_number, class:"form-control", placeholder: "Ejemplo: 690 380 370" %>
   </div>
 
