@@ -49,7 +49,7 @@ class OperationsController < ApplicationController
 
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to your_operations_url(@operation), notice: "Operation was successfully created." }
+        format.html { redirect_to your_operations_url(@operation), notice: "La operación ha sido creado satisfactoriamente." }
         format.json { render :show, status: :created, location: @operation }
       else
         format.html { render :new, status: :unprocessable_entity }
