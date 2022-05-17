@@ -37,6 +37,4 @@ class WebhooksController < ApplicationController
   end
 end
 
-        #@operation = Operation.find_by(operation_id: client_reference_id.to_i)
-        #@operation.status = 1
-        
+       
