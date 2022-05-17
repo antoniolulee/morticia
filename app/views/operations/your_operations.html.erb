@@ -20,18 +20,18 @@
           <div class="card-body">
             <h3 class="card-title"><%= operation.name %> de <%= operation.city %>
               <% if operation.status == 0 %>
-              - Pendiente de pago
+              - ¡Pendiente de pago!
               <% elsif operation.status == 1 %>
               - Operación activa
               <% elsif operation.status == 2 %>
               - Operación finalizada
               <% else %>
               - Operación caducada
-              <% end %> </h3>
+              <% end %> 
+            </h3>
 
 
-            <p class="card-text">Operación creada hace <%= time_ago_in_words(operation.created_at) %> y contactada
-              <%= operation.messages.count %> veces </p>
+            <p class="card-text">Una vez que la operación esté pagada, pasará a estar activa y se anunciará en el tablón principal donde todos los bancos interesados en tu hipoteca podrán ponerse en contacto contigo.</p>
 
             <ul class="list-inline">
               <li class="list-inline-item"><strong>LTV compra:</strong>
@@ -58,7 +58,7 @@
               
               <% if operation.status == 0 %>
                 <%= button_to "Pagar 1,99€", checkout_create_path,
-                  class:"btn btn-outline-success", method: :post,
+                  class:"btn btn-primary", method: :post,
                   data: {turbo: false},
                   params: {id: operation.id}, remote: true %>
                 <% elsif operation.status == 1 %>

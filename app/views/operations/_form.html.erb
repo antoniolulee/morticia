@@ -11,76 +11,96 @@
 </div>
 <% end %>
 
-<form>
-<div class="row g-3 align-items-center">
 
-  <div class="col-sm-7">
-    <%= form.label :requested_money, "Importe del préstamo", class:"form-label", style: "display: block" %>
-    <%= form.number_field :requested_money, class:"form-control", placeholder: "Ejemplo: 125000" %>
+<section>
+  <div class="container py-4 card">
+    <div class="row">
+      <div class="col-lg-8 mx-auto d-flex justify-content-center flex-column">
+        <h3 class="text-center">Crear nueva operación</h3>
+        <form role="form" id="contact-form" method="post" autocomplete="off">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Importe del préstamo</label>
+                  <%= form.number_field :requested_money, class:"form-control", placeholder: "Ejemplo: 125000" %>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Precio de compraventa de la casa</label>
+                  <%= form.number_field :buying_price, class:"form-control", placeholder: "Ejemplo: 140000" %>  
+                </div>
+              </div>
+               <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                <label>Valor de tasación</label>
+                  <%= form.number_field :appraisal_price, class:"form-control", placeholder: "Ejemplo: 150000; Si no tienes todavía la tasación, pon el precio de compra" %>  
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Años de duración del préstamo</label>
+                  <%= form.number_field :years_duration, class:"form-control", placeholder: "Ejemplo: 30" %>  
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Año de nacimiento</label>
+                  <%= form.number_field :year_of_birth, class:"form-control", placeholder: "Ejemplo: 1985" %>  
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Ingreso bruto anual</label>
+                  <%= form.number_field :annual_gross_income, class:"form-control", placeholder: "Ejemplo: 30000. Si sois dos, poned la suma total de vuestras rentas anuales" %> 
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Provincia</label>
+                  <%= form.select(:city, ["Alava", "Albacete", "Alicante", "Almeria", "Asturias", "Avila", "Badajoz", "Barcelona", "Burgos", "Caceres", "Cadiz", "Cantabria", "Castellon", "Ciudad Real", "Cordoba", "La Coruña", "Cuenca", "Gerona", "Granada", "Guadalajara", "Guipuzcoa", "Huelva", "Huesca", "Islas Baleares", "Jaen", "Leon", "Lerida", "Lugo", "Madrid", "Malaga", "Murcia", "Navarra", "Orense", "Palencia", "Las Palmas", "Pontevedra", "La Rioja", "Salamanca", "Segovia", "Sevilla", "Soria", "Tarragona", "Santa Cruz de Tenerife", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Ceuta", "Melilla" ], {include_blank: "Selecciona una provincia"}, {class:"form-control"}) %>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Tipo de interés</label>
+                  <%= form.select(:interest_type, ["Fijo", "Variable", "Mixto"], {include_blank: "Seleccione tipo de interés"}, {class:"form-control"}) %>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Nombre de contacto</label>
+                  <%= form.text_field :name, class:"form-control", placeholder: "Ejemplo: Antonio" %> 
+                </div>
+              </div>
+               <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Teléfono de contacto (Opcional)</label>
+                  <%= form.text_field :phone_number, class:"form-control", placeholder: "Ejemplo: 690 380 370" %>
+                </div>
+              </div>
+               <div class="col-md-12">
+                <div class="input-group input-group-static mb-4">
+                  <label>Recerencia interna (Opcional)</label>
+                  <%= form.text_field :reference_id, class:"form-control", placeholder: "(Para inmobiliarias) Pon una R.I para facilitar el seguimiento de un expediente" %>
+                </div>
+              </div>
+            </div>
+           <br>
+            <div class="row">
+              <div class="col">
+                <%= link_to "Cancelar", operations_path, class:"btn btn-outline-dark" %>
+                <%= form.submit "Crear anuncio", class:"btn btn-primary" %>
+                
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
+</section>
 
-  <div class="col-sm-7">
-    <%= form.label :buying_price, "Precio de compra de la casa", class:"form-label", style: "display: block" %>
-    <%= form.text_field :buying_price, class:"form-control", placeholder: "Ejemplo: 140000" %>
-  </div>
-
-  <div class="col-sm-7">
-    <%= form.label :appraisal_price, "Valor de tasación o tasación aproximada", class:"form-label", style: "display: block" %>
-    <%= form.text_field :appraisal_price, class:"form-control", placeholder: "Ejemplo: 150000; Si no tienes todavía la tasación, pon el precio de compra" %>
-  </div>
-
-  <div class="col-sm-7">
-    <%= form.label :years_duration, "Años de duración del préstamo", class:"form-label", style: "display: block" %>
-    <%= form.number_field :years_duration, class:"form-control", placeholder: "Ejemplo: 30" %>
-  </div>
-
-  <div class="col-sm-7">
-    <%= form.label :year_of_birth, "Año de nacimiento", class:"form-label", style: "display: block" %>
-    <%= form.number_field :year_of_birth, class:"form-control", placeholder: "Ejemplo: 1985" %>
-  </div>
-
-  <div class="col-sm-7">
-    <%= form.label :annual_gross_income, "Ingreso bruto anual", class:"form-label", style: "display: block" %>
-    <%= form.number_field :annual_gross_income, class:"form-control", placeholder: "Ejemplo: 30000; Si sois dos, poned la suma total de vuestras rentas anuales" %>
-  </div>
-
-  <!--Refactor city in database-->
-  <div class="col-sm-7">
-    <%= form.label :city, "Provincia", class:"form-label", style: "display: block" %>
-    <%= form.select(:city, ["Alava", "Albacete", "Alicante", "Almeria", "Asturias", "Avila", "Badajoz", "Barcelona", "Burgos", "Caceres", "Cadiz", "Cantabria", "Castellon", "Ciudad Real", "Cordoba", "La Coruña", "Cuenca", "Gerona", "Granada", "Guadalajara", "Guipuzcoa", "Huelva", "Huesca", "Islas Baleares", "Jaen", "Leon", "Lerida", "Lugo", "Madrid", "Malaga", "Murcia", "Navarra", "Orense", "Palencia", "Las Palmas", "Pontevedra", "La Rioja", "Salamanca", "Segovia", "Sevilla", "Soria", "Tarragona", "Santa Cruz de Tenerife", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya", "Zamora", "Ceuta", "Melilla" ], {include_blank: "Selecciona una provincia"}, {class:"form-control"}) %>
-  </div>
-
-  <!--Refactor tipye of interest in database-->
-  <div class="col-sm-7">
-    <%= form.label :interest_type, "Tipo de interés", class:"form-label", style: "display: block" %>
-    <%= form.select(:interest_type, ["Fijo", "Variable", "Mixto"], {include_blank: "Seleccione tipo de interés"}, {class:"form-control"}) %>
-  </div>
-
-  <div class="col-sm-7">
-    <%= form.label :name, "Nombre", class:"form-label", style: "display: block" %>
-    <%= form.text_field :name, class:"form-control", placeholder: "Ejemplo: Antonio" %>
-  </div>
-
-  <div class="col-sm-7">
-    <%= form.label :phone_number, "Teléfono", class:"form-label", style: "display: block" %>
-    <%= form.text_field :phone_number, class:"form-control", placeholder: "Ejemplo: 690 380 370" %>
-  </div>
-
-  <div class="col-sm-7">
-    <%= form.label :reference_id, "Referencia interna (Para inmobiliarias)", class:"form-label", style: "display: block" %>
-    <%= form.text_field :reference_id, class:"form-control", placeholder: "Pon una referencia interna si eres inmobiliaria para localizar el expediente" %>
-  </div>
-
-  <br>
-
-  <div>
-    <%= link_to "Volver al menú", operations_path, class:"btn btn-outline-primary" %>
-    <%= form.submit "Crear anuncio", class:"btn btn-outline-success" %>
-  </div>
-</div>
-
-</form>
 
 <% end %>
-
-<br>

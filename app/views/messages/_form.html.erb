@@ -10,22 +10,40 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :content, style: "display: block", class:"form-label" %>
-    <%= form.text_area :content, class:"form-control-lg" %>
-  </div>
-
-  <!-- refactor -->
-
-  <div>
-    <%= form.hidden_field :operation_id, value: "#{params[:id]}" %>
-  </div>
   
-  <!------->
+    <div class="row"> 
+      <div class="col-lg-5 m-auto">
+        <div class="card card-contact card-raised">
+          <form id="contact-form1" method="post">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
+                <h5 class="text-center text-white">Nuevo mensaje</h5>
+              </div>
+            </div>
+            <div class="card-body">
+              
+              <div class="input-group input-group-static mb-4">
+                <label>Tu mensaje</label>
+                <%= form.text_area :content, class:"form-control" %>
+              </div>
 
-  <div>
-    <%= link_to "Volver", :back, class:"btn btn-outline-primary" %>
-    <%= form.submit "Enviar", class:"btn btn-outline-success" %>
-  </div>
+              <div class="row">
+                <div class="col text-center m-auto">
+                  <%= link_to "Volver", :back, class:"btn btn-outline-dark" %>
+                  <%= form.submit "Enviar", class:"btn bg-gradient-primary" %>
+                </div>
+               
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  
+
+      <!-- refactor -->
+
+      <div>
+        <%= form.hidden_field :operation_id, value: "#{params[:id]}" %>
+      </div>
 <% end %>

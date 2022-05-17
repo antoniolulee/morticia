@@ -1,39 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-	<div class="container-fluid">
+<!-- Navbar Light -->
 
-		<%= link_to "Morticia", operations_path, class:"navbar-brand mb-0 h1 fs-2", style:"color:#663399" %>
-		<div class="d-flex">
-			<%= link_to "¡Anuncia tu hipoteca!", new_operation_path, class:"btn btn-outline-success btn-md" %>
-		</div>
-
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+<nav class="navbar navbar-expand-lg navbar-light bg-white z-index-3 py-3">
+	<div class="container">
+		<%= link_to "Morticia", root_path, class:"navbar-brand mb-0 h1 fs-2", style:"color:#663399" %>
+		<%= link_to "¡Anuncia tu hipoteca!", new_operation_path, class:"btn btn-sm  bg-gradient-primary  btn-round mb-0 ms-auto d-lg-none d-block" %>
+		<button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+			data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon mt-2">
+				<span class="navbar-toggler-bar bar1"></span>
+				<span class="navbar-toggler-bar bar2"></span>
+				<span class="navbar-toggler-bar bar3"></span>
+			</span>
 		</button>
-
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-					<%= link_to "Inicio", operations_path, class:"nav-link" %>
-				</li>
-				<li class="nav-item">
-					<%= link_to "Sobre nosotros", about_path, class:"nav-link" %>
+		<div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation">
+			<ul class="navbar-nav navbar-nav-hover mx-auto">
+				<li class="nav-item mx-2">
+					<%= link_to "Sobre nosotros", about_path, class:"nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" %>
 				</li>
 
 				<% if user_signed_in? %>
-				<li class="nav-item">
-					<%= link_to "Tus mensajes", your_messages_path, class: "nav-link" %>
+				<li class="nav-item mx-2">
+					<%= link_to "Tus mensajes", your_messages_path, class: "nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" %>
 				</li>
 
-				<li>
-					<%= link_to "Tus operaciones", your_operations_path, class: "nav-link" %>
+				<li class="nav-item mx-2">
+					<%= link_to "Tus operaciones", your_operations_path, class: "nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" %>
 				</li>
 
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-						aria-expanded="false">
+				<li class="nav-item mx-2 dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">
 						<%= current_user.email %>
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -41,7 +38,8 @@
 						<li>
 							<hr class="dropdown-divider">
 						</li>
-						<li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %></li>
+						<li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+						</li>
 					</ul>
 				</li>
 
@@ -53,16 +51,14 @@
 				<%= link_to "Nuevo usuario", new_user_registration_path, class: "nav-item nav-link" %>
 				<% end %>
 
-
 			</ul>
 
-
-
+			<ul class="navbar-nav d-lg-block d-none">
+				<li class="nav-item">
+					<%= link_to "¡Anuncia tu hipoteca!", new_operation_path, class:"btn btn-sm bg-gradient-primary  mb-0 me-1" %>
+				</li>
+			</ul>
 		</div>
-
-
-
-
-
 	</div>
 </nav>
+<!-- End Navbar -->

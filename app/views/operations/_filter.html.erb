@@ -1,39 +1,43 @@
 <%= search_form_for @q do |f| %>
-<div class='card card-body bg-light'>
+
+<div class='container card card-body border border-dark'>
 	<div class='row'>
-		<div class='col-md-2'>
+		<div class='col-lg-2'>
 			<label class='font-weight-bold'>Buscar ref. int.</label>
 			<%= f.search_field :reference_id_cont, placeholder: "Referencia Interna", class:"form-control" %>
 		</div>
 
-		<div class='col-md-2'>
+		<div class='col-lg-2'>
 			<label class='font-weight-bold'>Provincia</label>
 			<%= f.search_field :city_cont, placeholder: "Provincia", class:"form-control" %>
 		</div>
 
-		<div class='col-md-2'>
+		<div class='col-lg-2'>
 			<label class='font-weight-bold'>LTV compra % <</label> 
 			<%= f.search_field :ltv_buying_lteq_all, placeholder: "Ejem: 100", class:"form-control" %>
 		</div>
 
-		<div class='col-md-2'>
+		<div class='col-lg-2'>
 			<label class='font-weight-bold'>LTV tasación % <</label>
 			<%= f.search_field :ltv_appraisal_lteq_all, placeholder: "Ejem: 100", class:"form-control" %>
 		</div>
 
-		<div class='col-md-2'>
+		<div class='col-lg-2'>
 			<label class='font-weight-bold'>T. de esfuerzo % <</label>
 			<%= f.search_field :stress_test_lteq_all, placeholder: "Ejem: 50", class:"form-control" %>
 		</div>
 
-		<div class='col-md-2'>
-			<label class='font-weight-bold' style="opacity:0">Función</label>
-			<div class="btn-group" role="group">
-				<%= f.submit class: 'btn btn-outline-primary' %>
-				<%= link_to "Refresh", operations_path, :class => "btn btn-outline-success" %>
+		<div class='col-lg-2 text-center'>
+			
+			<div class="col-12">
+				<label class='font-weight-bold' style="opacity:0">Función</label>
 			</div>
+			
+			<%= f.submit 'Filtrar', class: 'btn btn-dark w-80 mb-0' %>
+			
+			
 		</div>
 	</div>
 </div>
-
-		<% end %>
+</div>
+<% end %>

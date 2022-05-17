@@ -1,43 +1,58 @@
 <div id="<%= dom_id operation %>">
   <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold"><%= operation.name %> de <%= operation.city %></h1>
-      
-      <p class="col-md-8 fs-4">
-        <ul class="list-group">
-          <li class="list-group-item"><strong>Importe del préstamo:</strong>
-            <%= number_to_currency(operation.requested_money, locale: :es) %>
-          </li>
-          <li class="list-group-item"><strong>Precio de compra:</strong>
-            <%= number_to_currency(operation.buying_price, locale: :es) %>
-          </li>
-          <li class="list-group-item"><strong>Valor de tasación:</strong>
-            <%= number_to_currency(operation.appraisal_price, locale: :es) %>
-          </li>
-          <li class="list-group-item"><strong>Ingreso bruto anual:</strong>
-            <%= number_to_currency(operation.annual_gross_income, locale: :es) %>
-          </li>
-          <li class="list-group-item"><strong>Duración:</strong> <%= operation.years_duration %> años</li>
-          <li class="list-group-item"><strong>Año de nacimiento:</strong> <%= operation.year_of_birth %>,
-            <%= Date.current.year - operation.year_of_birth %> años. Quedan <%= (operation.year_of_birth + 65) - Date.current.year %> para los 65 años</li>
-          <li class="list-group-item"><strong>Tipo de interés:</strong> <%= operation.interest_type %></li>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><%= operation.name %> de <%= operation.city %> </h3>
 
-          <li class="list-group-item"><strong>Referencia interna:</strong>
-            <%= operation.reference_id %>
-          </li>
-          
-        </ul>
-      </p>
-      <%= link_to "Volver", operations_path, class:"btn btn-outline-primary" %>
-      <% if operation.status == 1 %>
-      <%= link_to "Contactar", new_message_path(id: @operation.id), class:"btn btn-outline-success" %> 
-      <% else%>
-      <% end %>
-      <% if operation.phone_number != nil %>
-         <button type="button" class="btn btn-outline-dark"><%= number_to_phone(operation.phone_number) %></button>
-        <% else %>
-      <% end %>
-      
+          <p> Si está interesado en ponerse en la operación hipotecaria de <%= operation.name %> puede enviarle un mensaje o llamarl@
+            al teléfono si ha sido facilitado. </p>
+
+          <div class="row">
+
+            <ul class="list-group list-group-flush">
+
+              <li class="list-group-item"><strong>Importe del préstamo:</strong>
+                <%= number_to_currency(operation.requested_money, locale: :es) %>
+              </li>
+              <li class="list-group-item"><strong>Precio de compra:</strong>
+                <%= number_to_currency(operation.buying_price, locale: :es) %>
+              </li>
+              <li class="list-group-item"><strong>Valor de tasación:</strong>
+                <%= number_to_currency(operation.appraisal_price, locale: :es) %>
+              </li>
+              <li class="list-group-item"><strong>Ingreso bruto anual:</strong>
+                <%= number_to_currency(operation.annual_gross_income, locale: :es) %>
+              </li>
+              <li class="list-group-item"><strong>Duración:</strong> 
+                <%= operation.years_duration %> años
+              </li>
+              <li class="list-group-item"><strong>Año de nacimiento:</strong> <%= operation.year_of_birth %>,
+                <%= Date.current.year - operation.year_of_birth %> años. Quedan
+                <%= (operation.year_of_birth + 65) - Date.current.year %> para los 65 años</li>
+              <li class="list-group-item"><strong>Tipo de interés:</strong> <%= operation.interest_type %></li>
+
+              <li class="list-group-item"><strong>Referencia interna:</strong>
+                <%= operation.reference_id %>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="container mt-3">
+            <%= link_to "Volver", operations_path, class:"btn btn-outline-dark" %>
+            <% if operation.status == 1 %>
+            <%= link_to "Contactar", new_message_path(id: @operation.id), class:"btn btn-primary" %>
+            <% else%>
+            <% end %>
+            <% if operation.phone_number != nil %>
+            <button type="button" class="btn btn-outline-dark"><%= number_to_phone(operation.phone_number) %></button>
+            <% else %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
