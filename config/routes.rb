@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "operations#index"
+  root "pages#main"
 
   resources :messages, only: [:create, :new]
   devise_for :users
@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   
   get "/about", to:"pages#about"
+
 
   
 end
